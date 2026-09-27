@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Cose Strane sul Web</title>
+<meta name="description" content="I prodotti più strani e assurdi in vendita su Amazon, uno al giorno." />
+<link rel="icon" href="assets/logo/logo-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <img class="mark" src="assets/logo/logo-mark.png" alt="Logo" />
+    <h1 class="brand-font">Cose Strane sul Web</h1>
+  </div>
+</header>
+
+<nav class="stories" id="stories" aria-label="Categorie"></nav>
+
+<div class="filters">
+  <select id="priceFilter" aria-label="Filtra per prezzo">
+    <option value="">Tutti i prezzi</option>
+  </select>
+  <button class="reset" id="resetFilters">Azzera filtri</button>
+</div>
+
+<main class="feed" id="feed">
+  <div class="empty-state">Carico le cose strane di oggi… 📦</div>
+</main>
+
+<section class="newsletter">
+  <h2 class="brand-font">Non perderti niente di strano</h2>
+  <p>Iscriviti e ricevi ogni tanto un riassunto via email delle scoperte più assurde.</p>
+  <form id="newsletterForm">
+    <input type="email" id="newsletterEmail" placeholder="La tua email" required />
+    <button type="submit" class="btn">Iscriviti</button>
+  </form>
+  <div class="msg" id="newsletterMsg"></div>
+</section>
+
+<footer class="site-footer">
+  <p>Cose Strane sul Web — i link ai prodotti sono link di affiliazione Amazon.</p>
+  <a href="admin.html">Area riservata</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Admin — Cose Strane sul Web</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="assets/logo/logo-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ---------- LOGIN ---------- -->
+<div class="login-box" id="loginBox">
+  <h1 class="brand-font">Area riservata</h1>
+  <form id="loginForm">
+    <label for="loginEmail">Email</label>
+    <input type="email" id="loginEmail" required />
+    <label for="loginPassword">Password</label>
+    <input type="password" id="loginPassword" required />
+    <div class="field-error" id="loginError"></div>
+    <button type="submit" class="btn btn-block" style="margin-top:16px;">Entra</button>
+  </form>
+</div>
+
+<!-- ---------- DASHBOARD (nascosta finché non fai login) ---------- -->
+<div class="admin-wrap" id="dashboard" style="display:none;">
+  <div class="admin-header">
+    <h1 class="brand-font">Pannello prodotti</h1>
+    <button class="btn-secondary" id="logoutBtn">Esci</button>
+  </div>
+
+  <div class="panel">
+    <h2 id="formTitle">Nuovo prodotto</h2>
+    <p class="hint">Compila i campi, eventualmente usa l'AI per la bozza di testo, poi salva come bozza o programma la data di pubblicazione.</p>
+    <form id="productForm">
+      <input type="hidden" id="productId" />
+
+      <label for="pName">Nome prodotto</label>
+      <input type="text" id="pName" required />
+
+      <div class="two-col">
+        <div>
+          <label for="pCategory">Categoria</label>
+          <select id="pCategory" required></select>
+        </div>
+        <div>
+          <label for="pPrice">Fascia di prezzo</label>
+          <select id="pPrice" required></select>
+        </div>
+      </div>
+
+      <label for="pUrl">Link di affiliazione Amazon</label>
+      <input type="url" id="pUrl" placeholder="https://amzn.to/..." required />
+
+      <label for="pImageFile">Immagine prodotto</label>
+      <input type="file" id="pImageFile" accept="image/*" />
+      <input type="hidden" id="pImageUrl" />
+      <div id="imagePreviewWrap" style="margin-top:8px;"></div>
+
+      <button type="button" class="ai-btn" id="aiSuggestBtn">✨ Suggerisci testo con l'AI</button>
+      <div class="field-error" id="aiError"></div>
+
+      <label for="pCaption">Didascalia breve e simpatica</label>
+      <textarea id="pCaption" rows="2"></textarea>
+
+      <label for="pDescription">Descrizione estesa</label>
+      <textarea id="pDescription" rows="4"></textarea>
+
+      <label for="pDate">Data di pubblicazione</label>
+      <input type="date" id="pDate" required />
+
+      <div class="two-col" style="margin-top:18px;">
+        <button type="submit" data-published="false" class="btn-secondary btn-block">Salva come bozza</button>
+        <button type="submit" data-published="true" class="btn-block">Programma pubblicazione</button>
+      </div>
+      <button type="button" id="cancelEditBtn" class="btn-secondary btn-block" style="margin-top:8px; display:none;">Annulla modifica</button>
+    </form>
+  </div>
+
+  <div class="panel">
+    <h2>Prodotti</h2>
+    <p class="hint">Bozza = non ancora pronto. Programmato = uscirà in futuro. Pubblicato = visibile ora sul sito.</p>
+    <div id="productList"></div>
+  </div>
+</div>
+
+<div id="toastHolder"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

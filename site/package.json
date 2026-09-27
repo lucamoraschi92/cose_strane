@@ -1,0 +1,9 @@
+{
+  "name": "cose-strane-sul-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sito di affiliazione Amazon - prodotti strani, uno al giorno.",
+  "scripts": {
+    "dev": "echo 'Sito statico: apri index.html oppure usa \"vercel dev\"'"
+  }
+}
