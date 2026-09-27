@@ -69,7 +69,8 @@
     const password = document.getElementById("loginPassword").value;
     const { error } = await sb.auth.signInWithPassword({ email, password });
     if (error) {
-      loginError.textContent = "Credenziali non valide.";
+      loginError.textContent = "Errore: " + error.message;
+      console.error(error);
       return;
     }
     showDashboard();
