@@ -100,14 +100,15 @@ label {
 /* ---------- Category stories ---------- */
 .stories {
   display: flex;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 8px;
   overflow-x: auto;
   padding: 14px 16px;
   max-width: 640px;
   margin: 0 auto;
   scrollbar-width: none;
 }
-.stories::-webkit-scrollbar { display: none; }
+.stories::after { content: ""; flex: 0 0 4px; }  /* margine finale quando scorre */
 
 .story {
   flex: 0 0 auto;
