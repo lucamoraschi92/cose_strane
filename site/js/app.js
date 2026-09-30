@@ -53,14 +53,13 @@
       <article class="card">
         <div class="img-wrap"><img src="${img}" alt="${escapeHtml(p.name)}" loading="lazy" /></div>
         <div class="body">
-          <span class="cat-tag">
-            <img src="${cat ? cat.icon : ''}" alt="" />
-            ${cat ? escapeHtml(cat.label) : ''}
-          </span>
           <h3>${escapeHtml(p.name)}</h3>
           ${p.short_caption ? `<p class="caption">${escapeHtml(p.short_caption)}</p>` : ''}
           <div class="row">
-            <span class="price">${priceLabel(p.price_range)}</span>
+            <span class="cat-tag">
+              <img src="${cat ? cat.icon : ''}" alt="" />
+              ${cat ? escapeHtml(cat.label) : ''}
+            </span>
             <a class="btn" href="${p.affiliate_url}" target="_blank" rel="noopener sponsored">Vedi su Amazon</a>
           </div>
         </div>
