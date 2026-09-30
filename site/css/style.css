@@ -123,15 +123,20 @@ label {
   font-weight: 600;
 }
 .story .ring {
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 3px solid var(--line);
-  padding: 3px;
+  padding: 7px;
   background: var(--paper);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.story .ring img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .story.active .ring {
   border-color: var(--maroon);
