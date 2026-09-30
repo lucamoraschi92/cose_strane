@@ -90,15 +90,15 @@ label {
   max-width: 640px;
   margin: 0 auto;
 }
-
-@media (max-width: 480px) {
-  .site-header-inner { padding: 6px 14px; }
-  
 .site-header img.mark { width: 55px; height: 55px; }
 .site-header h1 {
   font-size: 26px;
   margin: 0;
   line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .site-header-inner { padding: 6px 14px; }
 }
 
 /* ---------- Category stories ---------- */
