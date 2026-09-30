@@ -169,10 +169,10 @@ label {
 .feed {
   max-width: 640px;
   margin: 0 auto;
-  padding: 6px 16px 40px;
+  padding: 6px 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 14px;
 }
 
 .card {
@@ -184,12 +184,12 @@ label {
 }
 .card .img-wrap {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   background: var(--yellow-soft);
   overflow: hidden;
 }
 .card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-.card .body { padding: 16px; }
+.card .body { padding: 12px 14px 14px; }
 .card .cat-tag {
   display: inline-flex;
   align-items: center;
@@ -200,19 +200,23 @@ label {
   border: 2px solid var(--line);
   border-radius: 999px;
   padding: 3px 10px 3px 3px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .card .cat-tag img { width: 20px; height: 20px; border-radius: 50%; }
 .card h3 {
-  font-size: 19px;
-  margin: 0 0 6px;
+  font-size: 17px;
+  margin: 0 0 4px;
 }
 .card p.caption {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     /* al massimo 2 righe */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   color: #4a453f;
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.4;
-}
+}  
 .card .row {
   display: flex;
   align-items: center;
