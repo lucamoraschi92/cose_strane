@@ -209,13 +209,13 @@ label {
 }
 .card .cat-tag img { width: 20px; height: 20px; border-radius: 50%; }
 .card h3 {
-  font-size: 14px;
+  font-size: 15px;
   margin: 0 0 10px;
 }
 .card p.caption {
   margin: 0 0 10px;
   color: #4a453f;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.4;
 }  
 .card .row {
