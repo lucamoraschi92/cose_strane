@@ -90,6 +90,10 @@ label {
   max-width: 640px;
   margin: 0 auto;
 }
+
+@media (max-width: 480px) {
+  .site-header-inner { padding: 6px 14px; }
+  
 .site-header img.mark { width: 55px; height: 55px; }
 .site-header h1 {
   font-size: 26px;
@@ -169,7 +173,7 @@ label {
 .feed {
   max-width: 640px;
   margin: 0 auto;
-  padding: 6px 12px 14px;
+  padding: 6px 12px 32px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -184,7 +188,7 @@ label {
 }
 .card .img-wrap {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   background: var(--yellow-soft);
   overflow: hidden;
 }
@@ -200,19 +204,16 @@ label {
   border: 2px solid var(--line);
   border-radius: 999px;
   padding: 3px 10px 3px 3px;
-  margin-bottom: 8px;
+  margin-bottom: 0;
+  white-space: nowrap;
 }
 .card .cat-tag img { width: 20px; height: 20px; border-radius: 50%; }
 .card h3 {
-  font-size: 17px;
-  margin: 0 0 4px;
+  font-size: 14px;
+  margin: 0 0 10px;
 }
 .card p.caption {
   margin: 0 0 10px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;     /* al massimo 2 righe */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   color: #4a453f;
   font-size: 14px;
   line-height: 1.4;
@@ -231,7 +232,7 @@ label {
   padding: 6px 12px;
   border-radius: 999px;
 }
-.card .btn { padding: 10px 18px; font-size: 14px; }
+.card .btn { padding: 7px 14px; font-size: 13px; border-width: 2px; }
 
 .empty-state {
   text-align: center;
