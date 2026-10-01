@@ -153,20 +153,41 @@ label {
 /* ---------- Filters ---------- */
 .filters {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   padding: 0 16px 14px;
   max-width: 640px;
   margin: 0 auto;
 }
-.filters select { flex: 1; }
-.filters .reset {
-  border: 2px dashed var(--line);
-  background: transparent;
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
-  font-weight: 700;
+.price-pills { display: flex; gap: 8px; flex: 1; min-width: 0; }
+.pill {
+  flex: 1 1 auto;
+  padding: 8px 10px;
   font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  background: var(--card);
   color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+}
+.pill.active {
+  background: var(--pink);
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 1px var(--maroon);
+}
+.filters .reset {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 2px dashed var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  visibility: hidden;   /* lo rende visibile il JS quando serve */
 }
 
 /* ---------- Feed ---------- */
