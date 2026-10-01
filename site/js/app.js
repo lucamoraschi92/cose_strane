@@ -69,13 +69,13 @@
               <img src="${cat ? cat.icon : ''}" alt="" />
               ${cat ? escapeHtml(cat.label) : ''}
             </span>
-            <a class="btn" href="${p.affiliate_url}" target="_blank" rel="noopener sponsored">Vedi su Amazon</a>
+            <a class="buy-link" href="${p.affiliate_url}" target="_blank" rel="noopener sponsored">Vedi su Amazon →</a>
           </div>
         </div>
       </article>
     `;
   }
-
+  
   function renderFeed() {
     let list = state.products;
     if (state.category) list = list.filter((p) => p.category === state.category);
