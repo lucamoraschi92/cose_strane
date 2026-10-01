@@ -34,6 +34,7 @@ img { max-width: 100%; display: block; }
 
 a { color: inherit; }
 
+/* Pulsanti generici (usati soprattutto nel pannello admin e nella newsletter) */
 button, .btn {
   font-family: inherit;
   cursor: pointer;
@@ -97,6 +98,7 @@ label {
   line-height: 1;
 }
 
+/* Intestazione più bassa sui telefoni */
 @media (max-width: 480px) {
   .site-header-inner { padding: 6px 14px; }
 }
@@ -112,7 +114,8 @@ label {
   margin: 0 auto;
   scrollbar-width: none;
 }
-.stories::after { content: ""; flex: 0 0 4px; }  /* margine finale quando scorre */
+.stories::-webkit-scrollbar { display: none; }
+.stories::after { content: ""; flex: 0 0 4px; }  /* margine finale quando la riga scorre */
 
 .story {
   flex: 0 0 auto;
@@ -140,6 +143,7 @@ label {
 .story .ring img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   object-fit: contain;
 }
 .story.active .ring {
@@ -147,10 +151,9 @@ label {
   box-shadow: 0 0 0 2px var(--maroon);
   background: var(--pink);
 }
-.story .ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 .story span { font-size: 11px; max-width: 68px; text-align: center; }
 
-/* ---------- Filters ---------- */
+/* ---------- Filtri prezzo (tre parole cliccabili) ---------- */
 .filters {
   display: flex;
   flex-direction: column;
@@ -199,6 +202,7 @@ label {
   text-decoration: underline;
   visibility: hidden;   /* lo rende visibile il JS quando c'è un filtro attivo */
 }
+
 /* ---------- Feed ---------- */
 .feed {
   max-width: 640px;
@@ -207,6 +211,7 @@ label {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  scroll-margin-top: 90px;   /* dopo il cambio pagina l'intestazione non copre il primo prodotto */
 }
 
 .card {
@@ -224,6 +229,22 @@ label {
 }
 .card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
 .card .body { padding: 12px 14px 14px; }
+.card h3 {
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+.card p.caption {
+  margin: 0 0 10px;
+  color: #4a453f;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.card .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
 .card .cat-tag {
   display: inline-flex;
   align-items: center;
@@ -234,55 +255,65 @@ label {
   border: 2px solid var(--line);
   border-radius: 999px;
   padding: 3px 10px 3px 3px;
-  margin-bottom: 0;
   white-space: nowrap;
 }
 .card .cat-tag img { width: 20px; height: 20px; border-radius: 50%; }
-.card h3 {
-  font-size: 15px;
-  margin: 0 0 10px;
-}
-.card p.caption {
-  margin: 0 0 10px;
-  color: #4a453f;
-  font-size: 12px;
-  line-height: 1.4;
-}  
-.card .row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.card .price {
-  font-weight: 800;
+
+/* "Vedi su Amazon": piccola scritta-link in Staatliches */
+.card .buy-link {
+  font-family: "Staatliches", -apple-system, sans-serif;
   font-size: 14px;
-  background: var(--ink);
-  color: var(--yellow-soft);
-  padding: 6px 12px;
-  border-radius: 999px;
+  letter-spacing: 0.5px;
+  color: var(--maroon);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+  padding: 8px 2px;   /* area di tocco più comoda sul telefono */
 }
-.card .btn {
-  background: var(--yellow);
-  color: var(--ink);
-  border: 2px solid var(--line);
-  padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 3px 0 var(--line);   /* effetto "rilievo" da tasto vero */
-  transition: transform .08s ease, box-shadow .08s ease;
-}
-.card .btn::after { content: " →"; }   /* la freccia invita al clic */
-.card .btn:active {
-  transform: translateY(3px);          /* si "schiaccia" quando lo tocchi */
-  box-shadow: 0 0 0 var(--line);
-}
+.card .buy-link:active { opacity: 0.6; }
 
 .empty-state {
   text-align: center;
   padding: 60px 20px;
   color: var(--gray);
+}
+
+/* ---------- Pagine ---------- */
+.pager {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 4px 16px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+.pager-prev { justify-self: start; }
+.pager-next { justify-self: end; }
+.pager-btn {
+  font-family: "Staatliches", -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  background: transparent;
+  color: var(--maroon);
+  border: none;
+  border-radius: 0;
+  padding: 10px 4px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+.pager-btn:disabled {
+  color: var(--gray);
+  text-decoration: none;
+  opacity: 0.5;
+  cursor: default;
+}
+.pager-info {
+  font-family: "Staatliches", -apple-system, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.5px;
 }
 
 /* ---------- Newsletter ---------- */
