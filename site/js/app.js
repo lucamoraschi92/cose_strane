@@ -30,12 +30,12 @@
     });
   }
 
-function renderPriceOptions() {
+  function renderPriceOptions() {
     priceFilterEl.innerHTML = PRICE_RANGES.map((p) => `
-      <button type="button" class="pill" data-price="${p.key}">${escapeHtml(p.label)}</button>
+      <button type="button" class="price-word" data-price="${p.key}">${escapeHtml(p.label)}</button>
     `).join("");
 
-    priceFilterEl.querySelectorAll(".pill").forEach((btn) => {
+    priceFilterEl.querySelectorAll(".price-word").forEach((btn) => {
       btn.addEventListener("click", () => {
         const key = btn.dataset.price;
         state.priceRange = state.priceRange === key ? null : key;  // secondo tocco = disattiva
