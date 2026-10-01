@@ -153,43 +153,52 @@ label {
 /* ---------- Filters ---------- */
 .filters {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 0 16px 14px;
+  gap: 2px;
+  padding: 4px 16px 12px;
   max-width: 640px;
   margin: 0 auto;
 }
-.price-pills { display: flex; gap: 8px; flex: 1; min-width: 0; }
-.pill {
-  flex: 1 1 auto;
-  padding: 8px 10px;
-  font-size: 13px;
-  font-weight: 700;
-  white-space: nowrap;
-  background: var(--card);
-  color: var(--ink);
-  border: 2px solid var(--line);
-  border-radius: 999px;
+.price-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 14px;
 }
-.pill.active {
-  background: var(--pink);
-  border-color: var(--maroon);
-  box-shadow: 0 0 0 1px var(--maroon);
-}
-.filters .reset {
-  flex: 0 0 auto;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border: 2px dashed var(--line);
-  border-radius: 50%;
+.price-word {
+  font-family: "Staatliches", -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: clamp(18px, 5.2vw, 24px);
+  letter-spacing: 0.5px;
   background: transparent;
   color: var(--ink);
-  font-size: 14px;
-  font-weight: 800;
-  visibility: hidden;   /* lo rende visibile il JS quando serve */
+  border: none;
+  border-radius: 8px;
+  padding: 2px 8px;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
 }
-
+.price-word.active {
+  background: var(--pink);
+  color: var(--maroon);
+  text-decoration: underline solid;
+  text-decoration-thickness: 3px;
+}
+.filters .reset {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray);
+  text-decoration: underline;
+  visibility: hidden;   /* lo rende visibile il JS quando c'è un filtro attivo */
+}
 /* ---------- Feed ---------- */
 .feed {
   max-width: 640px;
