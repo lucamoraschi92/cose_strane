@@ -4,13 +4,12 @@
 
 const CATEGORIES = [
   { key: "casa",           label: "Casa",             icon: "assets/icons/casa.png" },
-  { key: "altro",          label: "Altro",             icon: "assets/icons/altro.png" },
-  { key: "spettacolo",     label: "Spettacolo",        icon: "assets/icons/spettacolo.png" },
-  { key: "libri",          label: "Libri",              icon: "assets/icons/libri.png" },
-  { key: "vestiti",        label: "Vestiti",            icon: "assets/icons/vestiti.png" },
-  { key: "geniali",        label: "Geniali",            icon: "assets/icons/geniali.png" },
-  { key: "giochi",         label: "Giochi",             icon: "assets/icons/giochi.png" },
-  { key: "moda-accessori", label: "Moda & Accessori",  icon: "assets/icons/moda-accessori.png" },
+  { key: "spettacolo",     label: "Spettacolo",       icon: "assets/icons/spettacolo.png" },
+  { key: "libri",          label: "Libri",            icon: "assets/icons/libri.png" },
+  { key: "vestiti",        label: "Vestiti",          icon: "assets/icons/vestiti.png" },
+  { key: "giochi",         label: "Giochi",           icon: "assets/icons/giochi.png" },
+  { key: "moda-accessori", label: "Moda & Accessori", icon: "assets/icons/moda-accessori.png" },
+  { key: "altro",          label: "Altro",            icon: "assets/icons/altro.png" },
 ];
 
 const PRICE_RANGES = [
