@@ -49,10 +49,9 @@
     storiesEl.querySelectorAll(".story").forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.cat === state.category);
     });
-    priceFilterEl.querySelectorAll(".pill").forEach((btn) => {
+    priceFilterEl.querySelectorAll(".price-word").forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.price === state.priceRange);
     });
-    // la X compare solo se c'è almeno un filtro attivo
     resetBtn.style.visibility = (state.category || state.priceRange) ? "visible" : "hidden";
   }
 
