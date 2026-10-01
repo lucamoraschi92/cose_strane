@@ -30,12 +30,18 @@
     });
   }
 
-  function renderPriceOptions() {
-    PRICE_RANGES.forEach((p) => {
-      const opt = document.createElement("option");
-      opt.value = p.key;
-      opt.textContent = p.label;
-      priceFilterEl.appendChild(opt);
+function renderPriceOptions() {
+    priceFilterEl.innerHTML = PRICE_RANGES.map((p) => `
+      <button type="button" class="pill" data-price="${p.key}">${escapeHtml(p.label)}</button>
+    `).join("");
+
+    priceFilterEl.querySelectorAll(".pill").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.price;
+        state.priceRange = state.priceRange === key ? null : key;  // secondo tocco = disattiva
+        updateActiveStates();
+        renderFeed();
+      });
     });
   }
 
@@ -43,7 +49,11 @@
     storiesEl.querySelectorAll(".story").forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.cat === state.category);
     });
-    priceFilterEl.value = state.priceRange || "";
+    priceFilterEl.querySelectorAll(".pill").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.price === state.priceRange);
+    });
+    // la X compare solo se c'è almeno un filtro attivo
+    resetBtn.style.visibility = (state.category || state.priceRange) ? "visible" : "hidden";
   }
 
   function cardHtml(p) {
@@ -95,11 +105,6 @@
     state.products = data || [];
     renderFeed();
   }
-
-  priceFilterEl.addEventListener("change", () => {
-    state.priceRange = priceFilterEl.value || null;
-    renderFeed();
-  });
 
   resetBtn.addEventListener("click", () => {
     state.category = null;
